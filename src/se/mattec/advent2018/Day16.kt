@@ -61,7 +61,7 @@ object Day16 {
     }
     //0 incorrect
 
-    private val addr = object : Instruction {
+    val addr = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = registers[arguments[1]] + registers[arguments[2]]
@@ -69,7 +69,7 @@ object Day16 {
         }
     }
 
-    private val addi = object : Instruction {
+    val addi = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = registers[arguments[1]] + arguments[2]
@@ -77,7 +77,7 @@ object Day16 {
         }
     }
 
-    private val multr = object : Instruction {
+    val multr = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = registers[arguments[1]] * registers[arguments[2]]
@@ -85,7 +85,7 @@ object Day16 {
         }
     }
 
-    private val multi = object : Instruction {
+    val multi = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = registers[arguments[1]] * arguments[2]
@@ -93,7 +93,7 @@ object Day16 {
         }
     }
 
-    private val banr = object : Instruction {
+    val banr = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = registers[arguments[1]] and registers[arguments[2]]
@@ -101,7 +101,7 @@ object Day16 {
         }
     }
 
-    private val bani = object : Instruction {
+    val bani = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = registers[arguments[1]] and arguments[2]
@@ -109,7 +109,7 @@ object Day16 {
         }
     }
 
-    private val borr = object : Instruction {
+    val borr = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = registers[arguments[1]] or registers[arguments[2]]
@@ -117,7 +117,7 @@ object Day16 {
         }
     }
 
-    private val bori = object : Instruction {
+    val bori = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = registers[arguments[1]] or arguments[2]
@@ -125,7 +125,7 @@ object Day16 {
         }
     }
 
-    private val setr = object : Instruction {
+    val setr = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = registers[arguments[1]]
@@ -133,7 +133,7 @@ object Day16 {
         }
     }
 
-    private val seti = object : Instruction {
+    val seti = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = arguments[1]
@@ -141,7 +141,7 @@ object Day16 {
         }
     }
 
-    private val gtir = object : Instruction {
+    val gtir = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = if (arguments[1] > registers[arguments[2]]) 1 else 0
@@ -149,7 +149,7 @@ object Day16 {
         }
     }
 
-    private val gtri = object : Instruction {
+    val gtri = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = if (registers[arguments[1]] > arguments[2]) 1 else 0
@@ -157,7 +157,7 @@ object Day16 {
         }
     }
 
-    private val gtrr = object : Instruction {
+    val gtrr = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = if (registers[arguments[1]] > registers[arguments[2]]) 1 else 0
@@ -165,7 +165,7 @@ object Day16 {
         }
     }
 
-    private val eqir = object : Instruction {
+    val eqir = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = if (arguments[1] == registers[arguments[2]]) 1 else 0
@@ -173,7 +173,7 @@ object Day16 {
         }
     }
 
-    private val eqri = object : Instruction {
+    val eqri = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = if (registers[arguments[1]] == arguments[2]) 1 else 0
@@ -181,7 +181,7 @@ object Day16 {
         }
     }
 
-    private val eqrr = object : Instruction {
+    val eqrr = object : Instruction {
         override fun perform(registers: List<Int>, arguments: List<Int>): List<Int> {
             return registers.toMutableList().also {
                 it[arguments[3]] = if (registers[arguments[1]] == registers[arguments[2]]) 1 else 0
@@ -189,7 +189,7 @@ object Day16 {
         }
     }
 
-    private interface Instruction {
+    interface Instruction {
 
         fun perform(registers: List<Int>, arguments: List<Int>): List<Int>
 
