@@ -1,4 +1,4 @@
-package se.mattec.advent2018
+package se.mattec
 
 fun main(args: Array<String>) {
     println(Skeleton.problem1())
