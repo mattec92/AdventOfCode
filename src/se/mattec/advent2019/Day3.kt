@@ -3,100 +3,114 @@ package se.mattec.advent2019
 import kotlin.math.abs
 
 fun main(args: Array<String>) {
-    println(Day3.problem1())
-    println(Day3.problem2())
+    println(Day3.problem1and2())
 }
 
 object Day3 {
 
-    fun problem1(): String {
+    fun problem1and2(): String {
         var currentX = 0
         var currentY = 0
+        var wireDistance = 0
 
-        val board = mutableMapOf<Pair<Int, Int>, Unit>()
+        val board = mutableMapOf<Pair<Int, Int>, Int>()
 
         data[0].forEach {
             when (it.direction) {
                 "L" -> {
-                    (currentX downTo (currentX - it.length)).forEach {
-                        board[it to currentY] = Unit
+                    (currentX downTo (currentX - it.length + 1)).forEach {
+                        board[it to currentY] = wireDistance++
                     }
                     currentX -= it.length
                 }
                 "R" -> {
-                    (currentX..(currentX + it.length)).forEach {
-                        board[it to currentY] = Unit
+                    (currentX until (currentX + it.length)).forEach {
+                        board[it to currentY] = wireDistance++
                     }
                     currentX += it.length
                 }
-                "U" -> {
-                    (currentY downTo (currentY - it.length)).forEach {
-                        board[currentX to it] = Unit
+                "D" -> {
+                    (currentY downTo (currentY - it.length + 1)).forEach {
+                        board[currentX to it] = wireDistance++
                     }
                     currentY -= it.length
                 }
-                "D" -> {
-                    (currentY..(currentY + it.length)).forEach {
-                        board[currentX to it] = Unit
+                "U" -> {
+                    (currentY until (currentY + it.length)).forEach {
+                        board[currentX to it] = wireDistance++
                     }
                     currentY += it.length
                 }
             }
         }
 
-        val matches = mutableMapOf<Pair<Int, Int>, Int>()
+        val matchesToDistance = mutableMapOf<Pair<Int, Int>, Int>()
+        val matchesToWireDistance = mutableMapOf<Pair<Int, Int>, Int>()
 
         currentX = 0
         currentY = 0
+        wireDistance = 0
 
         data[1].forEach {
             when (it.direction) {
                 "L" -> {
-                    (currentX downTo (currentX - it.length)).forEach {
+                    (currentX downTo (currentX - it.length + 1)).forEach {
                         if (board[it to currentY] != null) {
-                            matches[it to currentY] = distance(0, it, 0, currentY)
+                            matchesToDistance[it to currentY] = manhattanDistance(0, it, 0, currentY)
+                            matchesToWireDistance[it to currentY] = wireDistance
                         }
+                        wireDistance++
                     }
                     currentX -= it.length
                 }
                 "R" -> {
-                    (currentX..(currentX + it.length)).forEach {
+                    (currentX until (currentX + it.length)).forEach {
                         if (board[it to currentY] != null) {
-                            matches[it to currentY] = distance(0, it, 0, currentY)
+                            matchesToDistance[it to currentY] = manhattanDistance(0, it, 0, currentY)
+                            matchesToWireDistance[it to currentY] = wireDistance
                         }
+                        wireDistance++
                     }
                     currentX += it.length
                 }
-                "U" -> {
-                    (currentY downTo (currentY - it.length)).forEach {
+                "D" -> {
+                    (currentY downTo (currentY - it.length + 1)).forEach {
                         if (board[currentX to it] != null) {
-                            matches[currentX to it] = distance(0, currentX, 0, it)
+                            matchesToDistance[currentX to it] = manhattanDistance(0, currentX, 0, it)
+                            matchesToWireDistance[currentX to it] = wireDistance
                         }
+                        wireDistance++
                     }
                     currentY -= it.length
                 }
-                "D" -> {
-                    (currentY..(currentY + it.length)).forEach {
+                "U" -> {
+                    (currentY until (currentY + it.length)).forEach {
                         if (board[currentX to it] != null) {
-                            matches[currentX to it] = distance(0, currentX, 0, it)
+                            matchesToDistance[currentX to it] = manhattanDistance(0, currentX, 0, it)
+                            matchesToWireDistance[currentX to it] = wireDistance
                         }
+                        wireDistance++
                     }
                     currentY += it.length
                 }
             }
         }
 
-        matches.remove(0 to 0)
+        matchesToDistance.remove(0 to 0)
+        matchesToWireDistance.remove(0 to 0)
 
-        return matches.minBy { it.value }.toString()
+        val matchesToBothWiresDistances = matchesToWireDistance.mapValues { entry ->
+            board[entry.key]!! + entry.value
+        }
+
+        return """
+            Problem 1: ${matchesToDistance.minBy { it.value }}
+            Problem2: ${matchesToBothWiresDistances.minBy { it.value }}
+        """.trimIndent()
     }
 
-    fun distance(x1: Int, x2: Int, y1: Int, y2: Int): Int {
+    private fun manhattanDistance(x1: Int, x2: Int, y1: Int, y2: Int): Int {
         return abs(x1 - x2) + abs(y1 - y2)
-    }
-
-    fun problem2(): Int {
-        return 0
     }
 
     private val data = """
