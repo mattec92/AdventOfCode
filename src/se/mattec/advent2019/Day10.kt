@@ -1,4 +1,4 @@
-package se.mattec
+package se.mattec.advent2019
 
 import kotlin.math.PI
 import kotlin.math.atan2
