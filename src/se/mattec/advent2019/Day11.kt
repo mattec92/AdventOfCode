@@ -12,7 +12,7 @@ object Day11 {
     }
 
     private fun tiles(initialTileColor: Long): Map<Pair<Int, Int>, Long> {
-        val computer = LongComputer()
+        val computer = LongComputer(data)
 
         val tiles = mutableMapOf<Pair<Int, Int>, Long>()
         var currentTile = 0 to 0
@@ -78,8 +78,8 @@ object Day11 {
         }
     }
 
-    class LongComputer {
-        private val internalData = data.toTypedArray()
+    class LongComputer(program : List<Long>) {
+        private val internalData = program.toTypedArray()
         private val outputs = mutableListOf<Long>()
         private var relativeBase = 0
         private var pointer = 0
