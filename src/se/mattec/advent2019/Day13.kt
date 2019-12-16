@@ -40,7 +40,7 @@ object Day13 {
         return tiles.count { it.value == TYPE_BLOCK }
     }
 
-    fun problem2(): Int {
+    fun problem2(): Long {
         val program = data.toMutableList()
         program[0] = 2
 
@@ -48,26 +48,37 @@ object Day13 {
 
         val tiles = mutableMapOf<Pair<Long, Long>, Long>()
 
-        while (true) {
-            val x = computer.execute(emptyList())
-            val y = computer.execute(emptyList())
-            val tileType = computer.execute(emptyList())
+        var input = 0L
+        var score = -1L
+        var paddlePosition = 0L to 0L
+        var ballPosition = 0L to 0L
 
-            if (computer.halted) {
-                break
-            }
+        while (!computer.halted || tiles.count { it.value == TYPE_BLOCK } > 0) {
+            val x = computer.execute(listOf(input))
+            val y = computer.execute(listOf(input))
+            val tileType = computer.execute(listOf(input))
 
-            val prevTileType = tiles[x to y]
-            when (tileType) {
-                TYPE_BALL -> when (prevTileType) {
-                    TYPE_EMPTY, TYPE_BLOCK -> tiles[x to y] = tileType
-                    else -> Unit //No-op
+            if (x == -1L && y == 0L) {
+                score = tileType
+            } else {
+                val prevTileType = tiles[x to y]
+                when (tileType) {
+                    TYPE_BALL -> {
+                        ballPosition = x to y
+                        if (prevTileType == TYPE_BLOCK) {
+                            tiles.remove(x to y)
+                        }
+                    }
+                    TYPE_PADDLE -> paddlePosition = x to y
+                    TYPE_BLOCK -> tiles[x to y] = tileType
+                    else -> tiles[x to y] = tileType
                 }
-                else -> tiles[x to y] = tileType
             }
+
+            input = ballPosition.first.compareTo(paddlePosition.first).toLong()
         }
 
-        return -1
+        return score
     }
 
     private val data = """
