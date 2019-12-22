@@ -15,7 +15,7 @@ object Day9 {
         return LongComputer().execute(listOf(2))
     }
 
-    class LongComputer {
+    private class LongComputer {
         private val internalData = data.toTypedArray()
         private val outputs = mutableListOf<Long>()
         private var relativeBase = 0
