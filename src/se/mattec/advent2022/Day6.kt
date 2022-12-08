@@ -1,11 +1,11 @@
 package se.mattec.advent2022
 
 fun main(args: Array<String>) {
-    println(Skeleton.problem1())
-    println(Skeleton.problem2())
+    println(Day6.problem1())
+    println(Day6.problem2())
 }
 
-object Skeleton {
+object Day6 {
 
     fun problem1(): String {
         val charList = data.toList()
