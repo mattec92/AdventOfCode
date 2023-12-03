@@ -3,7 +3,7 @@ package se.mattec.advent2018
 import kotlin.math.max
 import kotlin.math.min
 
-fun main(args: Array<String>) {
+fun main() {
     val water = Day17.problem1()
     println(water.size)
     println(Day17.problem2(water))

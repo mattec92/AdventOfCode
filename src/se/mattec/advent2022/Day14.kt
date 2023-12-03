@@ -3,7 +3,7 @@ package se.mattec.advent2022
 import java.lang.Integer.max
 import java.lang.Integer.min
 
-fun main(args: Array<String>) {
+fun main() {
     println(Day14.problem1())
     println(Day14.problem2())
 }

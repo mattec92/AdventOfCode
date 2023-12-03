@@ -2,7 +2,7 @@ package se.mattec.advent2018
 
 import kotlin.math.absoluteValue
 
-fun main(args: Array<String>) {
+fun main() {
     println(Day6.problem1())
     println(Day6.problem2())
 }

@@ -2,7 +2,7 @@ package se.mattec.advent2019
 
 import kotlin.math.abs
 
-fun main(args: Array<String>) {
+fun main() {
     println(Day3.problem1and2())
 }
 

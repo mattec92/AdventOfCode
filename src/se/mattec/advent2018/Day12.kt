@@ -2,7 +2,7 @@ package se.mattec.advent2018
 
 import java.util.regex.Pattern
 
-fun main(args: Array<String>) {
+fun main() {
     println(Day12.problem1())
     println(Day12.problem2())
 }

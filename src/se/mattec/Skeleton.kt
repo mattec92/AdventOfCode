@@ -1,6 +1,6 @@
 package se.mattec
 
-fun main(args: Array<String>) {
+fun main() {
     println(Skeleton.problem1())
     println(Skeleton.problem2())
 }

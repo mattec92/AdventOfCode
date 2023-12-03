@@ -2,7 +2,7 @@ package se.mattec.advent2021
 
 import kotlin.math.max
 
-fun main(args: Array<String>) {
+fun main() {
     println(Day17.problem1())
     println(Day17.problem2())
 }

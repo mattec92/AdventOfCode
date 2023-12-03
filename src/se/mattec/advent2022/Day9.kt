@@ -4,7 +4,7 @@ import kotlin.math.abs
 import kotlin.math.sign
 import kotlin.reflect.KFunction1
 
-fun main(args: Array<String>) {
+fun main() {
     println(Day9.problem1())
     println(Day9.problem2())
 }

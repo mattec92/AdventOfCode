@@ -1,6 +1,6 @@
 package se.mattec.advent2019
 
-fun main(args: Array<String>) {
+fun main() {
     Day5.execute(1)
     Day5.execute(5)
 }

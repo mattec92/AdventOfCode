@@ -2,7 +2,7 @@ package se.mattec.advent2021
 
 import sumByLong
 
-fun main(args: Array<String>) {
+fun main() {
     println(Day14.problem1())
     println(Day14.problem2())
 }

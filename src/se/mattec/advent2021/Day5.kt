@@ -4,7 +4,7 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.sign
 
-fun main(args: Array<String>) {
+fun main() {
     println(Day5.problem1())
     println(Day5.problem2())
 }

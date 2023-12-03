@@ -5,7 +5,7 @@ import kotlin.math.ceil
 import kotlin.math.floor
 import kotlin.math.max
 
-fun main(args: Array<String>) {
+fun main() {
     println(Day18.problem1())
     println(Day18.problem2())
 }

@@ -2,7 +2,7 @@ package se.mattec.advent2021
 
 import java.util.*
 
-fun main(args: Array<String>) {
+fun main() {
     println(Day10.problem1())
     println(Day10.problem2())
 }

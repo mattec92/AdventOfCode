@@ -5,7 +5,7 @@ import kotlin.math.atan2
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-fun main(args: Array<String>) {
+fun main() {
     Day10.problem1And2()
 }
 

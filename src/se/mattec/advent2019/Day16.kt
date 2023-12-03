@@ -2,7 +2,7 @@ package se.mattec.advent2019
 
 import java.lang.Math.abs
 
-fun main(args: Array<String>) {
+fun main() {
     val problem1Output = Day16.problem1()
     println(problem1Output)
     println(Day16.problem2(problem1Output.toInt()))

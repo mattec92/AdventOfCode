@@ -1,6 +1,6 @@
 package se.mattec.advent2018
 
-fun main(args: Array<String>) {
+fun main() {
     measured { println(Day5.problem1(Day5::reduce)) }
     measured { println(Day5.problem1(Day5::reduce2)) }
     measured { println(Day5.problem1(Day5::splitNReduce)) }

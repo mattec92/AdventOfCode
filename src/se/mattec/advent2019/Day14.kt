@@ -3,7 +3,7 @@ package se.mattec.advent2019
 import kotlin.math.ceil
 import kotlin.math.roundToInt
 
-fun main(args: Array<String>) {
+fun main() {
     println(Day14.problem1(mutableListOf()))
     println(Day14.problem2())
 }

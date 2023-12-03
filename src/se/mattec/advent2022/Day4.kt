@@ -2,7 +2,7 @@ package se.mattec.advent2022
 
 import java.lang.Integer.min
 
-fun main(args: Array<String>) {
+fun main() {
     println(Day4.problem1())
     println(Day4.problem2())
 }

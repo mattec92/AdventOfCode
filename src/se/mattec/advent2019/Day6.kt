@@ -1,6 +1,6 @@
 package se.mattec.advent2019
 
-fun main(args: Array<String>) {
+fun main() {
     println(Day6.problem1())
     println(Day6.problem2())
 }
