@@ -12,6 +12,7 @@
 
 # Package Files #
 *.jar
+!kotlinx-coroutines-core-jvm-1.6.0.jar
 *.war
 *.nar
 *.ear
